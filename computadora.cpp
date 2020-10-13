@@ -2,7 +2,6 @@
 
 Computadora::Computadora()
 {
-
 }
 
 Computadora::Computadora(const string &s_o,const string &procesador,const string grafica,int ram)
