@@ -12,6 +12,14 @@ public:
     ~Laboratorio();
     void agregarFinal(const Computadora &c);
     void mostrar();
+
+    //Sobrecarga <<
+    friend Laboratorio& operator<<(Laboratorio &lab, const Computadora &c)
+    {
+        lab.agregarFinal(c);
+
+        return lab;
+    }
 };
 
 
