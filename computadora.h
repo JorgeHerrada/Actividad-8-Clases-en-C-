@@ -41,6 +41,7 @@ public:
     //Sobrecarga >>
     friend istream& operator>>(istream &in, Computadora &c)
     {
+        cout<<endl;
         cout << "Sistema Operativo: ";
         getline(cin, c.s_o);
 
