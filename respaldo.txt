@@ -1,0 +1,8 @@
+Linux
+INTEL core i7
+Ice Lake
+8
+Windows
+AMD A6
+Radeon 5
+4
