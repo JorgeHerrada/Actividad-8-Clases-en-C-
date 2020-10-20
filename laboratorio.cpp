@@ -1,4 +1,5 @@
 #include "laboratorio.h"
+#include <fstream>
 
 Laboratorio::Laboratorio()
 {
@@ -46,4 +47,58 @@ void Laboratorio::mostrar()
     }
     cout << endl;
     
+}
+
+void Laboratorio::respaldar()
+{
+    ofstream archivo("respaldo.txt");
+    if(archivo.is_open())
+    {
+        for (size_t i = 0; i < contador; i++)
+        {
+            Computadora &c = arreglo[i];
+
+            archivo << c.get_s_o()<<endl;
+            archivo << c.getProcesador()<<endl;
+            archivo << c.getGrafica()<<endl;
+            archivo << c.getRam()<<endl;
+        }
+    }
+    archivo.close();
+}
+
+void Laboratorio::recuperar()
+{
+    ifstream archivo("respaldo.txt");
+    if (archivo.is_open())
+    {
+        string tempo; //guardará los strings para asignarlos al objeto
+        int ram;
+        Computadora c;
+
+        while (true)
+        {
+            getline(archivo, tempo);
+            c.set_s_o(tempo);
+
+            //condicion para comprobar si terminó de leer el archivo, salga del bucle
+            if (archivo.eof())
+            {
+                break;
+            }
+        
+            getline(archivo, tempo);
+            c.setProcesador(tempo);
+        
+            getline(archivo, tempo);
+            c.setGrafica(tempo);
+
+            getline(archivo, tempo);
+            ram = stof(tempo);
+            c.setRam(ram);
+
+            agregarFinal(c);
+        }
+    }
+    archivo.close();
 }
