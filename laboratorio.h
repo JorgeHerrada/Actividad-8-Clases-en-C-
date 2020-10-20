@@ -13,6 +13,9 @@ public:
     void agregarFinal(const Computadora &c);
     void mostrar();
 
+    void respaldar();
+    void recuperar();
+
     //Sobrecarga <<
     friend Laboratorio& operator<<(Laboratorio &lab, const Computadora &c)
     {
